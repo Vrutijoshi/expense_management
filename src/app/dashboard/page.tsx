@@ -16,36 +16,35 @@ import { Button } from "@/components/ui/button";
 import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
 
 export default async function DashboardPage() {
-//   const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-//   if (!session) {
-//     redirect("/login");
-//   }
+  if (!session) {
+    redirect("/login");
+  }
 
-  const userId:any = '123'
-//   const userId:any = session?.user?.id
+  const userId:any = session?.user?.id
 
 
   // Get user's data
-  const [expenses, incomes, totalExpense, totalIncome] = await Promise.all([[],[],{_sum:{amount:4}},{_sum:{amount:4}}
-    // prisma.expense.findMany({
-    //   where: { userId },
-    //   orderBy: { date: "desc" },
-    //   take: 5,
-    // }),
-    // prisma.income.findMany({
-    //   where: { userId },
-    //   orderBy: { date: "desc" },
-    //   take: 5,
-    // }),
-    // prisma.expense.aggregate({
-    //   where: { userId },
-    //   _sum: { amount: true },
-    // }),
-    // prisma.income.aggregate({
-    //   where: { userId },
-    //   _sum: { amount: true },
-    // }),
+  const [expenses, incomes, totalExpense, totalIncome] = await Promise.all([
+    prisma.expense.findMany({
+      where: { userId },
+      orderBy: { date: "desc" },
+      take: 5,
+    }),
+    prisma.income.findMany({
+      where: { userId },
+      orderBy: { date: "desc" },
+      take: 5,
+    }),
+    prisma.expense.aggregate({
+      where: { userId },
+      _sum: { amount: true },
+    }),
+    prisma.income.aggregate({
+      where: { userId },
+      _sum: { amount: true },
+    }),
   ]);
 
   // Calculate dashboard stats

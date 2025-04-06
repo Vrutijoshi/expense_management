@@ -5,6 +5,7 @@ import { AuthFormData } from "@/types";
 import bcrypt from "bcryptjs";
 
 export async function registerUser(data: AuthFormData) {
+  console.log('data',data)
   const { name, email, password } = data;
 
   const existingUser = await db.user.findUnique({

@@ -45,7 +45,7 @@ export function LoginForm() {
         password: data.password,
         redirect: false,
       });
-
+console.log('result',result)
       if (result?.error) {
         toast({
           title: "Error",
