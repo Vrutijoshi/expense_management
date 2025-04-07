@@ -14,11 +14,11 @@ export default async function RegisterPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      {/* <Header /> */}
       <div className="flex-1 container max-w-screen-2xl mx-auto py-12">
         <RegisterForm />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

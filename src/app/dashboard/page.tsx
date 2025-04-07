@@ -24,7 +24,7 @@ export default async function DashboardPage() {
 
   const userId:any = session?.user?.id
 
-
+console.log('userId', userId)
   // Get user's data
   const [expenses, incomes, totalExpense, totalIncome] = await Promise.all([
     prisma.expense.findMany({
@@ -55,7 +55,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      {/* <Header /> */}
       <div className="flex-1 container max-w-screen-2xl mx-auto">
         <div className="flex flex-col md:flex-row">
           <Sidebar />
@@ -111,7 +111,7 @@ export default async function DashboardPage() {
               </Card>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-4">
+            {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-4">
               <Card className="col-span-4">
                 <CardHeader>
                   <CardTitle>Expense Breakdown</CardTitle>
@@ -128,7 +128,7 @@ export default async function DashboardPage() {
                   <IncomeChart userId={userId} />
                 </CardContent>
               </Card>
-            </div>
+            </div> */}
 
             <div className="grid gap-4 md:grid-cols-2 mt-4">
               <Card>
@@ -205,7 +205,7 @@ export default async function DashboardPage() {
           </main>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

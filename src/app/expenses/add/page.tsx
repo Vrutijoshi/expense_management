@@ -15,7 +15,7 @@ export default async function AddExpensePage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      {/* <Header /> */}
       <div className="flex-1 container max-w-screen-2xl mx-auto">
         <div className="flex flex-col md:flex-row">
           <Sidebar />
@@ -34,7 +34,7 @@ export default async function AddExpensePage() {
           </main>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

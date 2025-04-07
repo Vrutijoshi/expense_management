@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "@/components/auth/authProvider";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,8 +26,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider  session={session}>          
+        <AuthProvider  session={session}> 
+          <Header/>         
           <main>{children}</main>
+          <Footer/>
           <Toaster />
         </AuthProvider>
 

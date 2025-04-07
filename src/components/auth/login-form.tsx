@@ -118,7 +118,7 @@ console.log('result',result)
         </form>
       </Form>
       <div className="text-center text-sm">
-        Don&apos;t have an account?{" "}
+        Don't have an account?{" "}
         <Link href="/register" className="font-medium text-blue-600 hover:underline">
           Register
         </Link>
