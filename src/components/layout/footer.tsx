@@ -12,7 +12,7 @@ export function Footer() {
           <div className="flex items-center gap-2 text-center text-sm text-muted-foreground">
             <span>Prepared by Vruti Joshi</span>
             <a 
-              href="https://www.linkedin.com/in/vruti-joshi-47121aa8/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BdP6XVM2jRHmwz5DiI21gBg%3D%3D" 
+              href="https://www.linkedin.com/in/vruti-joshi-47121aa8/"
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-blue-500 hover:underline flex items-center gap-1"
