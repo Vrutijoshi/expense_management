@@ -7,13 +7,10 @@ import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Footer } from "@/components/layout/footer";
 
-interface IncomePageProps {
-  params: {
-    id: string;
-  };
-}
 
-export default async function IncomePage({ params }: IncomePageProps) {
+
+export default async function IncomePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -23,7 +20,7 @@ export default async function IncomePage({ params }: IncomePageProps) {
   const userId = session?.user?.id as string;
   const income:any = await prisma.income.findUnique({
     where: {
-      id: params.id,
+      id: id,
       userId: userId,
     },
   });

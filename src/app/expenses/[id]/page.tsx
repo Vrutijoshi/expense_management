@@ -14,9 +14,9 @@ import { Footer } from "@/components/layout/footer";
 // }
 
 export default async function ExpensePage({ params,
-}: {
-  params: { id: string };
-}): Promise<React.ReactElement> {
+}: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -26,7 +26,7 @@ export default async function ExpensePage({ params,
   const userId = session?.user?.id as string;
   const expense: any = await prisma.expense.findUnique({
     where: {
-      id: params.id,
+      id: id,
       userId: userId,
     },
   });
