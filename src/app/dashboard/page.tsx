@@ -6,8 +6,6 @@ import { authOptions } from "@/lib/auth";
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Footer } from "@/components/layout/footer";
-import { ExpenseChart } from "@/components/dashboard/expense-chart";
-import { IncomeChart } from "@/components/dashboard/income-chart";
 import { formatCurrency } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";

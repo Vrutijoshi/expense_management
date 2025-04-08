@@ -2,16 +2,14 @@
 
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import { 
-  LayoutDashboard, 
-  LogOut, 
-  Menu, 
-  Moon, 
-  PieChart, 
-  Plus, 
-  Sun, 
+import {
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  PieChart,
+  Plus,
   User,
-  // DollarSign
+
 } from "lucide-react";
 
 import {
@@ -86,20 +84,8 @@ export function Header() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-                    {mounted && theme === "dark" ? (
-                      <>
-                        <Sun className="mr-2 h-4 w-4" />
-                        Light mode
-                      </>
-                    ) : (
-                      <>
-                        <Moon className="mr-2 h-4 w-4" />
-                        Dark mode
-                      </>
-                    )}
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
+
+
                   <DropdownMenuItem className="cursor-pointer text-red-600 focus:text-red-600" onClick={() => signOut({ callbackUrl: "/" })}>
                     <LogOut className="mr-2 h-4 w-4" />
                     Log out
@@ -126,7 +112,7 @@ export function Header() {
                     </div>
                   </div>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem 
+                  <DropdownMenuItem
                     className="cursor-pointer text-red-600 focus:text-red-600"
                     onClick={() => signOut({ callbackUrl: "/" })}
                   >

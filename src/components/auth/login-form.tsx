@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-
+import LoadingPage from "@/components/shared/loading";
 type FormData = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
@@ -67,7 +67,9 @@ console.log('result',result)
       setIsLoading(false);
     }
   }
-
+  if (isLoading) {
+    return <LoadingPage />;
+  }
   return (
     <div className="mx-auto max-w-md space-y-6">
       <div className="space-y-2 text-center">
