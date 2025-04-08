@@ -11,7 +11,7 @@ import {
   Plus, 
   Sun, 
   User,
-  DollarSign
+  // DollarSign
 } from "lucide-react";
 
 import {
@@ -24,6 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { GiTwoCoins } from "react-icons/gi"; // From Game Icons
 
 export function Header() {
   const { data: session } = useSession();
@@ -39,8 +40,9 @@ export function Header() {
     <header className="border-b">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="flex items-center gap-2 font-bold text-xl">
-            <DollarSign className="h-5 w-5" />
+          <Link href="/dashboard" className="flex items-center gap-2 font-bold text-l">
+            {/* <DollarSign className="h-5 w-5" /> */}
+            <GiTwoCoins className="text-yellow-500 h-8 w-8" />
             Budget Tracker
           </Link>
         </div>
@@ -48,14 +50,14 @@ export function Header() {
         <div className="flex items-center gap-4">
           {session ? (
             <>
-              <Button variant="outline" size="icon" className="hidden md:flex" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+              {/* <Button variant="outline" size="icon" className="hidden md:flex" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
                 {mounted && theme === "dark" ? (
                   <Sun className="h-5 w-5" />
                 ) : (
                   <Moon className="h-5 w-5" />
                 )}
                 <span className="sr-only">Toggle theme</span>
-              </Button>
+              </Button> */}
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
