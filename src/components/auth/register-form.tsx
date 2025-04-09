@@ -49,7 +49,7 @@ export function RegisterForm() {
       router.push("/login");
     } catch (error) {
       const errorMessage =
-        error instanceof Error && error.message === "User already exists"
+        error instanceof Error && error.message === "User_already_exists"
           ? "User already exists. Please use a different email."
           : error instanceof Error
           ? error.message

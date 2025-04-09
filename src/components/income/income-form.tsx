@@ -142,7 +142,11 @@ export function IncomeForm({ income }: IncomeFormProps) {
                   placeholder="0.00" 
                   step="0.01" 
                   {...field}
-                  onChange={(e) => field.onChange(parseFloat(e.target.value))}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    field.onChange(val === '' ? '' : parseFloat(val));
+                  }}
+                  value={field.value === undefined || field.value === null ? '' : isNaN(Number(field.value)) ? '' : String(field.value)}
                 />
               </FormControl>
               <FormMessage />

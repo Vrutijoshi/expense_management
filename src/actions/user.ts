@@ -15,7 +15,7 @@ export async function registerUser(data: AuthFormData) {
   });
 
   if (existingUser) {
-    throw new Error("User already exists with this email");
+    throw new Error("User_already_exists");
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
