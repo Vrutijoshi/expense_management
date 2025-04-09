@@ -5,30 +5,39 @@ import { AuthFormData } from "@/types";
 import bcrypt from "bcryptjs";
 
 export async function registerUser(data: AuthFormData) {
-  console.log('data',data)
-  const { name, email, password } = data;
+  try {
+    const { name, email, password } = data;
 
-  const existingUser = await db.user.findUnique({
-    where: {
-      email,
-    },
-  });
+    const existingUser = await db.user.findUnique({
+      where: { email },
+    });
 
-  if (existingUser) {
-    throw new Error("User_already_exists");
+    if (existingUser) {
+      return {
+        success: false,
+        error: "User_already_exists",
+      };
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await db.user.create({
+      data: {
+        name,
+        email,
+        password: hashedPassword,
+      },
+    });
+
+    return {
+      success: true,
+      
+    };
+  } catch (error) {
+    console.error("Registration error:", error);
+    return {
+      success: false,
+      error: "Unexpected_error",
+    };
   }
-
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const user = await db.user.create({
-    data: {
-      name,
-      email,
-      password: hashedPassword,
-    },
-  });
-
-  // Return user without password
-  const { password: _, ...userWithoutPassword } = user;
-  return userWithoutPassword;
 }

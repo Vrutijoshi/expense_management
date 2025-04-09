@@ -36,34 +36,35 @@ export function RegisterForm() {
       password: "",
     },
   });
-
   async function onSubmit(data: FormData) {
-    setIsLoading(true);
+  setIsLoading(true);
 
-    try {
-      await registerUser(data);
-      toast({
-        title: "Success",
-        description: "Your account has been created. You can now login.",
-      });
-      router.push("/login");
-    } catch (error) {
-      console.log("Error on register",error)
-      const errorMessage =
-        error instanceof Error && error.message === "User_already_exists"
-          ? "User already exists. Please use a different email."
-          : error instanceof Error
-          ? error.message
-          : "Something went wrong..!";
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
+  const result = await registerUser(data) as { success: boolean; error?: string;};
+
+  if (!result.success || result.error) {
+    let errorMessage = "Something went wrong..!";
+
+    if (result.error === "User_already_exists") {
+      errorMessage = "User already exists. Please use a different email.";
     }
+
+    toast({
+      title: "Error",
+      description: errorMessage,
+      variant: "destructive",
+    });
+
+    setIsLoading(false);
+    return;
   }
+
+  toast({
+    title: "Success",
+    description: "Your account has been created. You can now login.",
+  });
+
+  router.push("/login");
+}
 
   return (
     <div className="mx-auto max-w-md space-y-6">
