@@ -48,6 +48,7 @@ export function RegisterForm() {
       });
       router.push("/login");
     } catch (error) {
+      console.log("Error on register",error)
       const errorMessage =
         error instanceof Error && error.message === "User_already_exists"
           ? "User already exists. Please use a different email."
