@@ -53,7 +53,7 @@ export function RegisterForm() {
           ? "User already exists. Please use a different email."
           : error instanceof Error
           ? error.message
-          : "Something went wrong";
+          : "Something went wrong..!";
       toast({
         title: "Error",
         description: errorMessage,
