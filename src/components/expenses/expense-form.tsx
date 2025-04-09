@@ -53,6 +53,7 @@ export interface Expense {
   // user?: User;
 }
 const EXPENSE_CATEGORIES = [
+ "Grocery shopping",
   "Food",
   "Housing",
   "Transportation",
