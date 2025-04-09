@@ -153,7 +153,7 @@ export function ExpenseList({ expenses }: ExpenseListProps) {
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the
+              This action cannot be undo. This will permanently delete the
               expense from your account.
             </AlertDialogDescription>
           </AlertDialogHeader>

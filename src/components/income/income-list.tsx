@@ -153,7 +153,7 @@ export function IncomeList({ incomes }: IncomeListProps) {
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the
+              This action cannot be undo. This will permanently delete the
               income entry from your account.
             </AlertDialogDescription>
           </AlertDialogHeader>
