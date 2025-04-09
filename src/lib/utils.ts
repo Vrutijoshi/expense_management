@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
+import { db } from "./prisma";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -14,7 +15,7 @@ export async function getCurrentUser() {
     return null;
   }
 
-  const user = await prisma?.user.findUnique({
+  const user = await db?.user.findUnique({
     where: {
       email: session.user.email,
     },
