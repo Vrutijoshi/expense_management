@@ -48,7 +48,12 @@ export function RegisterForm() {
       });
       router.push("/login");
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Something went wrong";
+      const errorMessage =
+        error instanceof Error && error.message === "User already exists"
+          ? "User already exists. Please use a different email."
+          : error instanceof Error
+          ? error.message
+          : "Something went wrong";
       toast({
         title: "Error",
         description: errorMessage,
